@@ -1,0 +1,115 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  background-color: #000;
+}
+
+a,a:hover,a:focus{
+  /*text-decoration: none;*/
+  color: #000;
+}
+.container{
+  background-color: #fff;
+  width: 60%;
+  margin: 0 auto;
+}
+.movieList{
+  padding: 20px 15px;
+  border : 2px solid transparent;
+  cursor: pointer;
+}
+.movieList:hover{
+  background-color: #f2f2f2;
+  border : 2px solid #ccc;
+}
+
+movie{
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 70%;
+  text-overflow: ellipsis;
+}
+
+.header{
+  padding: 20px 20px;
+  margin: 0px -15px 0px -15px;
+  font-size: 30px;
+  background-color: #e5e5e5;
+}
+
+#loader{
+  position: fixed;
+  z-index: 5;
+  top: 4%;
+  right: 2%;
+  display: none;
+  width: 200px;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+  background-color: #ea6153;
+}
+#loader i{
+  margin-right: 20px;
+}
+
+.modal-dialog{
+  width: 60%;
+}
+.poster{
+  max-height: 400px;
+}
+
+.modal-title{
+  word-wrap: break-word;
+}
+
+.small{
+  font-size: 11px;
+}
+.description{
+  color: #505050;
+}
+.description b{
+  color: #4c4c4c;
+  font-size: 16px;
+}
+.cast-pic-default{
+  width: 50px;
+  height: 68px;
+  background-color: #000;
+}
+.cast-pic{
+  position: absolute;
+  top: 0;
+  left: ;
+  z-index: 5;
+  width: 50px;
+  height: 68px;
+  margin-right: 20px;
+}
+.castRow{
+  position: relative;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.castList{
+  padding: 20px;
+}
+
+.castRow name{
+  font-size: 20px;
+  display: block;
+  margin-top: 20px;
+}
+h3{
+  padding: 20px;
+}
+
+
+
+

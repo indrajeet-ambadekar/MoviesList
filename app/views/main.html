@@ -1,0 +1,109 @@
+<div id="loader">
+  <i class='fa fa-spinner fa-spin'></i> loading...
+</div>
+<div class='container'>
+  <div class='header'>
+    IMDB top 250 movies
+  </div>
+  <div class='row'>
+    <div class='col-md-4 movieList' title="{{movie.title}}" ng-repeat="movie in moviesList" ng-click="getMovieDetails(movie.link)">
+      <div class='row'>
+        <div class='col-sm-3'>
+          <img ng-src="{{movie.pic}}" width="50">
+        </div>
+        <div class='col-sm-9'>
+          <movie>{{$index+1}}. <b>{{movie.title}}</b> ({{movie.year}})</movie>
+          <div class='row'>
+            <div class='col-sm-12'>
+              <h5><i class='fa fa-star'></i>&nbsp;&nbsp;{{movie.rating}}/10</h5>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="movieDetail" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title"><i class='fa fa-film'></i>&nbsp;&nbsp;
+          <a href="{{movie.url}}" target="_blank">
+            {{movie.name}}
+          </a>
+        </h2>
+      </div>
+      <div class="modal-body">
+        <div class='row'>
+          <div class='col-md-3 text-center'>
+            <a href="{{movie.url}}" target="_blank">
+              <img src="{{movie.poster}}" class='poster' />
+            </a>
+          </div>
+          <div class='col-md-8 description'>
+            <p>{{movie.description}}</p>
+            <div class='row'>
+              <div class='col-md-12'>
+                <i class='fa fa-star'></i>
+                &nbsp;&nbsp;
+                <b>{{movie.rating}}</b> 
+                (<span class='small'>
+                  <label>Reviewed by: </label> {{movie.reviewer_count}}
+                </span>)
+              </div>
+              <div class='col-md-6'>Duration : <b>{{movie.info.duration}}</b></div>
+              <div class='col-md-6'>Cinema Board Rating : <b>{{movie.info.movieRating}}</b></div>
+              <div class='col-md-12'>
+                Genre : <span ng-repeat="genre in movie.info.genre"><b>{{genre}}</b>&nbsp;</span>
+              </div>
+              <div class='col-md-12'>
+                Director : <span ng-repeat="director in movie.director">
+                  <b>
+                    <a href='http://www.imdb.com{{director.link}}' target="_blank">{{director.name}}</a>
+                  </b>&nbsp;
+                </span>
+              </div>
+              <div class='col-md-12'>
+                Director : 
+                <span ng-repeat="writer in movie.writer">
+                  <a href='http://www.imdb.com{{writer.link}}' target="_blank"><b>{{writer.name}}</b></a>,
+                &nbsp;</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class='row castList'>
+          <h3><b>Cast : </b></h3>
+          <div class='col-md-6 castRow' data-name="{{cast.name.toLowerCase()}}" ng-repeat="cast in movie.cast">
+            <div class="row">
+              <div class='col-sm-2'>
+                <a href="http://www.imdb.com{{cast.link}}" target="_blank">
+                  <div class='cast-pic-default'></div>
+                  <img ng-src="images/default_profile.png" class='cast-pic'/>
+                </a>
+              </div>
+              <div class='col-sm-8'>
+                <a href="http://www.imdb.com{{cast.link}}" target="_blank">
+                  <name>{{cast.name}}</name>
+                </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
